@@ -167,13 +167,18 @@ a:hover {
 
     .site-navbar .site-logo {
         /* Prevent the logo from forcing the toggler onto a new line */
-        max-width: calc(100vw - 140px);
-        height: 54px;
+        max-width: calc(100vw - 120px);
+        height: 66px;
         flex-shrink: 1;
     }
 
     .site-navbar .navbar-toggler {
         margin-left: auto;
+    }
+
+    /* Phone view: hide phone number inside the expanded/collapsed menu */
+    .site-navbar .navbar-collapse .nav-phone {
+        display: none !important;
     }
 
     .site-navbar .navbar-nav {
