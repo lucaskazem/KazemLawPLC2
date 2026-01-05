@@ -1,0 +1,730 @@
+/* Kazem Law, PLC — site theme (pairs with Bootstrap 5) */
+
+:root {
+    --brand-navy: #0b1f3b;
+    --brand-navy-2: #08162b;
+    --brand-gold: #c8a14a;
+    --brand-gold-2: #b8933f;
+
+    --ink: #0f172a;
+    --muted: #475569;
+    --paper: #ffffff;
+    --paper-2: #f8fafc;
+    --border: #e2e8f0;
+    --shadow-sm: 0 8px 20px rgba(2, 6, 23, 0.08);
+    --shadow-md: 0 18px 50px rgba(2, 6, 23, 0.12);
+    --nav-offset: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding-top: var(--nav-offset);
+    scroll-padding-top: var(--nav-offset);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+}
+
+.lead,
+p.fs-4,
+p.fs-5 {
+    color: var(--muted);
+}
+
+a {
+    color: var(--brand-navy);
+    text-decoration-color: rgba(11, 31, 59, 0.35);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--brand-navy-2);
+    text-decoration-color: rgba(11, 31, 59, 0.7);
+}
+
+/* Header (Watson-style: logo left, links center, phone right) */
+.site-logo {
+    height: 62px;
+    width: auto;
+    max-width: none;
+    flex-shrink: 0;
+}
+
+.site-navbar {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96)),
+        url("images/leesburg.jpg");
+    background-size: cover;
+    background-position: center 35%;
+    border-bottom: 1px solid rgba(2, 6, 23, 0.08);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.site-navbar,
+.site-navbar .nav-link,
+.site-navbar .site-logo {
+    transition: padding 180ms ease, height 180ms ease, background-position 180ms ease, color 120ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-navbar,
+    .site-navbar .nav-link,
+    .site-navbar .site-logo {
+        transition: none !important;
+    }
+}
+
+/* Expanded at top-of-page */
+.site-navbar.is-at-top {
+    background-position: center 25%;
+}
+
+.site-navbar.is-at-top .nav-link {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.site-navbar.is-at-top .site-logo {
+    height: 74px;
+}
+
+/* Compact after scrolling */
+.site-navbar:not(.is-at-top) .nav-link {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+.site-navbar:not(.is-at-top) .site-logo {
+    height: 58px;
+}
+
+.site-navbar .navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 0 0 auto;
+}
+
+.site-navbar .nav-link {
+    color: rgba(15, 23, 42, 0.78) !important;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.86rem;
+    padding: 1.05rem 0.95rem;
+    white-space: nowrap;
+}
+
+.site-navbar .navbar-nav {
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+}
+
+.site-navbar .navbar-collapse {
+    align-items: center;
+}
+
+.site-navbar .navbar-brand {
+    margin-right: 1rem;
+}
+
+.site-navbar .nav-link {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+@media (max-width: 991.98px) {
+    .site-navbar .container-fluid {
+        /* Override large desktop padding utilities (ps-5/pe-4) so brand + toggler fit on one row */
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .site-navbar .navbar-brand {
+        /* Allow the brand to shrink so the hamburger stays aligned on the right */
+        flex: 1 1 auto;
+        min-width: 0;
+        margin-right: 0.5rem;
+    }
+
+    .site-navbar .site-logo {
+        /* Prevent the logo from forcing the toggler onto a new line */
+        max-width: calc(100vw - 140px);
+        height: 54px;
+        flex-shrink: 1;
+    }
+
+    .site-navbar .navbar-toggler {
+        margin-left: auto;
+    }
+
+    .site-navbar .navbar-nav {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .site-navbar .nav-link {
+        white-space: normal;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .nav-link:focus {
+    color: var(--brand-navy) !important;
+}
+
+.site-navbar .nav-link.active {
+    color: var(--brand-gold-2) !important;
+}
+
+.site-navbar .navbar-toggler {
+    border-color: rgba(15, 23, 42, 0.18);
+}
+
+.nav-phone {
+    font-weight: 700;
+    font-size: 1.3rem;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    
+    letter-spacing: 0.02em;
+    color: rgba(15, 23, 42, 0.86);
+    text-decoration: none;
+    white-space: nowrap;
+    padding-right: 5rem;;
+}
+
+.nav-phone:hover,
+.nav-phone:focus {
+    color: var(--brand-navy);
+    text-decoration: underline;
+    text-decoration-color: rgba(200, 161, 74, 0.7);
+}
+
+.dropdown-menu {
+    border-radius: 14px;
+    padding: 0.55rem;
+    border: 1px solid rgba(2, 6, 23, 0.08);
+    box-shadow: var(--shadow-sm);
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    padding: 0.55rem 0.75rem;
+}
+
+/* Sections */
+.section {
+    padding: 4.25rem 0;
+}
+
+.section--alt {
+    background: var(--paper-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: clamp(1.65rem, 2.1vw, 2.25rem);
+    margin-bottom: 0.75rem;
+}
+
+.section-kicker {
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    color: rgba(15, 23, 42, 0.65);
+}
+
+/* Hero */
+.hero {
+    color: #ffffff;
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/office.PNG");
+    background-size: cover;
+    background-position: center;
+    padding: 5.25rem 0;
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+    color: #ffffff;
+}
+
+.hero .lead,
+.hero p {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+.page-hero {
+    color: #ffffff;
+    min-height: 400px;
+  display: flex;
+  align-items: center;
+    background:
+    linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+    url("images/leesburg.jpg");
+    background-position: 50% 65%; /* x% y% */
+    padding: 3.75rem 0 2.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Practice Areas hero image override */
+.page-hero.page-hero--practice-areas {
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/court.jpg");
+        background-position: 50% 60%; /* x% y% */
+    background-size: cover;
+}
+
+/* Practice area detail pages: hero images should match the home-page cards */
+.page-hero.page-hero--personal-injury {
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/fist.jpg");
+    background-position: 50% 60%; /* x% y% */
+    background-size: cover;
+}
+
+.page-hero.page-hero--dui {
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/car.jpg");
+    background-position: 50% 70%; /* x% y% */
+    background-size: cover;
+}
+
+.page-hero.page-hero--reckless {
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/reckless.jpeg");
+    background-position: 50% 30%; /* x% y% */
+    background-size: cover;
+}
+
+.page-hero.page-hero--criminal-defense {
+    background:
+        linear-gradient(120deg, rgba(11, 31, 59, 0.96), rgba(11, 31, 59, 0.70)),
+        url("images/headache.jpg");
+    background-position: 50% 40%; /* x% y% */
+    background-size: cover;
+}
+
+.page-hero h1,
+.page-hero h2 {
+    color: #ffffff;
+}
+
+.page-hero .lead {
+    color: rgba(255, 255, 255, 0.86);
+}
+
+/* Buttons */
+.btn-brand {
+    background: var(--brand-gold);
+    border-color: var(--brand-gold);
+    color: var(--brand-navy);
+    font-weight: 750;
+    letter-spacing: 0.02em;
+}
+
+.btn-brand:hover,
+.btn-brand:focus {
+    background: var(--brand-gold-2);
+    border-color: var(--brand-gold-2);
+    color: var(--brand-navy-2);
+}
+
+.btn-outline-brand {
+    border-color: rgba(200, 161, 74, 0.85);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.btn-outline-brand:hover,
+.btn-outline-brand:focus {
+    background: rgba(200, 161, 74, 0.12);
+    border-color: var(--brand-gold);
+    color: #ffffff;
+}
+
+/* Cards */
+.card {
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(2, 6, 23, 0.06);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(148, 163, 184, 0.55);
+}
+
+.card .card-title {
+    color: var(--ink);
+}
+
+.card .card-text {
+    color: var(--muted);
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.form-control,
+.form-select {
+    border-radius: 14px;
+    border-color: rgba(226, 232, 240, 0.95);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(200, 161, 74, 0.85);
+    box-shadow: 0 0 0 0.25rem rgba(200, 161, 74, 0.18);
+}
+
+.form-control-lg {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+}
+
+/* Review stars (Contact Us page) */
+.review-stars {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     gap: 0.4rem;
+     align-items: center;
+}
+
+.review-star {
+    appearance: none;
+    border: 0;
+    padding: 0.1rem 0.15rem;
+    background: transparent;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: rgba(15, 23, 42, 0.25);
+    cursor: pointer;
+    transition: transform 120ms ease, color 120ms ease, opacity 120ms ease;
+}
+
+.review-star.is-filled {
+    color: var(--brand-gold);
+}
+
+.review-star:hover {
+    transform: translateY(-1px);
+}
+
+.review-star:focus-visible {
+    outline: 3px solid rgba(200, 161, 74, 0.45);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+.card .stretched-link:focus-visible {
+    outline: 3px solid rgba(200, 161, 74, 0.55);
+    outline-offset: 3px;
+    border-radius: 12px;
+}
+
+/* Accordions / pagination */
+.accordion {
+    --bs-accordion-border-radius: 14px;
+    --bs-accordion-inner-border-radius: 14px;
+}
+
+.accordion-item {
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(2, 6, 23, 0.05);
+}
+
+.pagination .page-link {
+    border-radius: 12px !important;
+    border: 1px solid rgba(226, 232, 240, 0.35);
+    padding: 0.65rem 0.9rem;
+}
+
+/* Practice area "tabs" (scoped so it doesn't affect other paginations) */
+.practice-pagination {
+    gap: 0.75rem;
+}
+
+.practice-pagination .page-item {
+    margin: 0;
+}
+
+.practice-pagination .page-link {
+    border-radius: 14px !important;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    color: rgba(11, 31, 59, 0.92);
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.75rem 1rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.06);
+}
+
+.practice-pagination .page-link:hover,
+.practice-pagination .page-link:focus {
+    color: rgba(11, 31, 59, 1);
+    border-color: rgba(200, 161, 74, 0.55);
+    box-shadow: 0 14px 30px rgba(2, 6, 23, 0.10);
+}
+
+.practice-pagination .page-item.active .page-link,
+.practice-pagination .page-item.active .page-link:focus,
+.practice-pagination .page-item.active .page-link:hover {
+    background: linear-gradient(135deg, rgba(11, 31, 59, 0.98), rgba(8, 22, 43, 0.98));
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.practice-pagination .page-link:focus {
+    box-shadow: 0 0 0 0.25rem rgba(200, 161, 74, 0.18);
+}
+
+/* Hide practice-area pagination on phones */
+@media (max-width: 575.98px) {
+    nav[aria-label="Practice area pages"] {
+        display: none !important;
+    }
+}
+
+/* Footer */
+.site-footer {
+    background: var(--brand-navy);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.site-footer a {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration-color: rgba(200, 161, 74, 0.45);
+}
+
+.site-footer a:hover {
+    color: #ffffff;
+    text-decoration-color: rgba(200, 161, 74, 0.85);
+}
+
+.site-footer .fineprint {
+    color: rgba(255, 255, 255, 0.70);
+    font-size: 0.95rem;
+}
+
+/* Utility */
+.rounded-4 {
+    border-radius: 1rem !important;
+}
+
+/* Attorney profile layout */
+.profile-layout .profile-content {
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .profile-layout .profile-content::before {
+        content: "";
+        position: absolute;
+        left: -0.75rem;
+        top: 1.25rem;
+        bottom: 1.25rem;
+        width: 1px;
+        background: rgba(200, 161, 74, 0.55);
+    }
+}
+
+.profile-photo {
+    width: min(340px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 10px solid rgba(226, 232, 240, 0.95);
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.14);
+}
+
+.profile-rule {
+    width: 70%;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(200, 161, 74, 0.65);
+}
+
+.profile-two-col .profile-main-col {
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .profile-two-col .profile-main-col::before {
+        content: "";
+        position: absolute;
+        left: -0.75rem;
+        top: 1.25rem;
+        bottom: 1.25rem;
+        width: 1px;
+        background: rgba(200, 161, 74, 0.55);
+    }
+}
+
+.profile-cred-block h4 {
+    font-weight: 800;
+    letter-spacing: 0.01em;
+}
+
+.profile-title {
+    font-weight: 800;
+    color: rgba(15, 23, 42, 0.7);
+    letter-spacing: 0.02em;
+}
+
+.profile-logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0.25rem;
+}
+
+.profile-logo-strip img {
+    flex: 1 1 170px;
+    height: clamp(78px, 6.2vw, 140px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    background: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    filter: saturate(1.02) contrast(1.03);
+}
+
+.profile-logo-strip img.logo-edu {
+    flex: 1 1 360px; /* keeps university logos on the top row */
+    height: clamp(64px, 4.9vw, 110px); /* slightly smaller */
+    opacity: 0.95;
+}
+
+.profile-logo-strip img.logo-bar {
+    flex: 1 1 170px;
+    height: clamp(86px, 6.8vw, 155px);
+}
+
+.profile-logo-strip img.logo-bar-lg {
+    flex: 1 1 200px;
+    height: clamp(98px, 7.6vw, 180px);
+}
+
+/* Mobile-only reordering of bar logos (keep desktop order unchanged) */
+@media (max-width: 575.98px) {
+    .profile-logo-strip img.logo-bar--va-ed { order: 1; }
+    .profile-logo-strip img.logo-bar--pa { order: 2; }
+    .profile-logo-strip img.logo-bar--fl { order: 3; }
+    .profile-logo-strip img.logo-bar--va { order: 4; }
+}
+
+/* Home page reviews */
+.review-stars-row {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.review-stars-row .star {
+    font-size: 1.15rem;
+    line-height: 1;
+    color: rgba(15, 23, 42, 0.25);
+}
+
+.review-stars-row .star.is-filled {
+    color: var(--brand-gold);
+}
+
+.review-text {
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+
+.review-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: baseline;
+    padding-top: 0.25rem;
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.review-name {
+    font-weight: 800;
+    color: rgba(15, 23, 42, 0.86);
+}
+
+.review-sub {
+    color: rgba(71, 85, 105, 0.9);
+    font-weight: 650;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.profile-badges img {
+    height: clamp(64px, 6vw, 110px);
+    width: auto;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.35rem 0.5rem;
+}
+
+/* Slightly larger visuals inside the wide stacked cards */
+.profile-wide-card .profile-badges img {
+    height: clamp(78px, 7vw, 130px);
+}
+
+.profile-wide-card h3 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing: -0.01em;
+}
+
+.profile-wide-card ul.fs-4 {
+    margin-bottom: 0;
+}
+

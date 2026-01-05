@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="120" viewBox="0 0 980 120" role="img" aria-label="Kazem Law, PLLC">
+  <defs>
+    <style>
+      .serif { font-family: Georgia, "Times New Roman", Times, serif; }
+      .sans { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial; }
+    </style>
+  </defs>
+
+  <!-- Mark (shield + scales) -->
+  <g transform="translate(18 10)">
+    <!-- Shield -->
+    <path d="M50 4
+             C70 4 86 12 86 12
+             V42
+             C86 78 66 96 50 104
+             C34 96 14 78 14 42
+             V12
+             C14 12 30 4 50 4Z"
+          fill="#0b1f3b" opacity="0.96"/>
+    <path d="M50 10
+             C67 10 80 16 80 16
+             V42
+             C80 74 63 89 50 95
+             C37 89 20 74 20 42
+             V16
+             C20 16 33 10 50 10Z"
+          fill="none" stroke="#c8a14a" stroke-width="2.5"/>
+
+    <!-- Subtle fill design (chevrons) -->
+    <g opacity="0.22" stroke="#c8a14a" stroke-width="2">
+      <path d="M26 30 L50 54 L74 30" fill="none"/>
+      <path d="M26 44 L50 68 L74 44" fill="none"/>
+      <path d="M26 58 L50 82 L74 58" fill="none"/>
+    </g>
+
+    <!-- Large golden scales -->
+    <g transform="translate(50 28)" stroke="#c8a14a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- pillar -->
+      <path d="M0 0 V42"/>
+      <!-- top finial -->
+      <path d="M0 -8 V0"/>
+      <path d="M-6 -8 H6"/>
+      <!-- crossbar -->
+      <path d="M-24 10 H24"/>
+      <!-- hangers -->
+      <path d="M-18 10 V22"/>
+      <path d="M18 10 V22"/>
+      <!-- pans -->
+      <path d="M-30 22 H-6"/>
+      <path d="M6 22 H30"/>
+      <path d="M-30 22 C-26 34 -10 34 -6 22"/>
+      <path d="M6 22 C10 34 26 34 30 22"/>
+      <!-- base -->
+      <path d="M-14 48 H14"/>
+    </g>
+  </g>
+
+  <!-- Wordmark (larger for navbar readability) -->
+  <g transform="translate(124 62)">
+    <text x="0" y="0" class="serif" font-size="44" fill="#0b1f3b" letter-spacing="0.6">
+      KAZEM LAW, PLLC
+    </text>
+    <rect x="0" y="12" width="680" height="2" fill="#c8a14a" opacity="0.9"/>
+    <text x="0" y="44" class="sans" font-size="20" fill="#334155" letter-spacing="1.4">
+      VIRGINIA, PENNSYLVANIA, FLORIDA, AND DISTRICT OF COLUMBIA
+    </text>
+  </g>
+</svg>
+
+
