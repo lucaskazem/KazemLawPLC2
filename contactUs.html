@@ -85,16 +85,16 @@
                                     <h2 class="section-title mb-4">Schedule a Consultation</h2>
 
                                     <!-- Netlify Forms -->
-                                    <form name="consultation" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                                        action="thank-you.html">
+                                    <form name="consultation" method="POST" data-netlify="true" netlify
+                                        netlify-honeypot="bot-field" action="/thank-you.html">
                                         <input type="hidden" name="form-name" value="consultation">
                                         <p class="d-none">
-                                            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+                                            <label>Don’t fill this out if you’re human: <input type="text" name="bot-field"></label>
                                         </p>
 
                                         <div class="mb-3">
                                             <label class="form-label fw-semibold">Name <span class="text-danger">(Required)</span></label>
-                                            <input class="form-control form-control-lg" name="name" autocomplete="name" required>
+                                            <input type="text" class="form-control form-control-lg" name="name" autocomplete="name" required>
                                         </div>
 
                                         <div class="row g-3">
@@ -159,11 +159,11 @@
                                     <h2 class="section-title text-center mb-3">Leave us a review!</h2>
 
                                     <!-- Netlify Forms: Review box -->
-                                    <form name="review" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-                                        action="thank-you.html">
+                                    <form name="review" method="POST" data-netlify="true" netlify
+                                        netlify-honeypot="bot-field" action="/thank-you.html">
                                         <input type="hidden" name="form-name" value="review">
                                         <p class="d-none">
-                                            <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+                                            <label>Don’t fill this out if you’re human: <input type="text" name="bot-field"></label>
                                         </p>
 
                                         <div class="row g-3 align-items-start">
